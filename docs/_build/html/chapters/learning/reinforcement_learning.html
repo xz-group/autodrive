@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reinforcement Learning &mdash; autodrive 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Imitation Learning" href="imitation_learning.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> autodrive
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../simulator/comparison.html">Choosing a Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulator/about_carla.html">Carla Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulator/installation.html">Carla Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="learn.html">Machine Learning with Carla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imitation_learning.html">Imitation Learning</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reinforcement Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References:</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">autodrive</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Reinforcement Learning</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/chapters/learning/reinforcement_learning.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="reinforcement-learning">
+<h1>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>Carla has provided trained end-to-end reinforcement learning model code on their</dt>
+<dd><a class="reference external" href="https://github.com/carla-simulator/reinforcement-learning">GitHub RL repo</a>.</dd>
+</dl>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Ubuntu 16.04</li>
+<li>Carla</li>
+<li>Python 3</li>
+</ul>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Ensure that Carla is running as expected.</li>
+<li>Go to the <code class="docutils literal notranslate"><span class="pre">PythonClient</span></code> directory and clone the reinforcement learning code:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/carla-simulator/reinforcement-learning.git
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>The Reinforcement Learning code uses <a class="reference external" href="https://chainer.org/">Chainer</a>.
+Installation instructions can be found on the <a class="reference external" href="https://docs.chainer.org/en/stable/install.html/">official documentation</a>, or run the following commands:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt install python3-dev python3-pip
+
+pip3 install chainer --user
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Reinforcement Learning code was tested on Chainer version 4.3.1,
+but other versions should be compatible as well.</p>
+</div>
+<ol class="arabic simple" start="4">
+<li>Test your Chainer installation before proceeding. Run <code class="docutils literal notranslate"><span class="pre">python3</span></code> and then:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">chainer</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>If no errors pop up, go ahead with the next step. Otherwise, lookup the error
+message on the internet for possible solutions.</p>
+<p>For the error <code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">__init__()</span> <span class="pre">got</span> <span class="pre">unexpected</span> <span class="pre">keyword</span> <span class="pre">argument(s)</span> <span class="pre">'bias'</span></code>,</p>
+<p>Change all <code class="docutils literal notranslate"><span class="pre">L.Convolution2D</span></code> params in the <code class="docutils literal notranslate"><span class="pre">reinforcement-learning/agent/asyncrl/dqn_head.py</span></code>
+file from:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">L.Convolution2D(n_input_channels,</span> <span class="pre">32,</span> <span class="pre">8,</span> <span class="pre">stride=4,</span> <span class="pre">bias=bias),</span>
+<span class="pre">`</span></code>
+to (base -&gt; initial_bias)
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">L.Convolution2D(n_input_channels,</span> <span class="pre">32,</span> <span class="pre">8,</span> <span class="pre">stride=4,</span> <span class="pre">initial_bias=bias),</span>
+<span class="pre">`</span></code></p>
+<ol class="arabic simple" start="5">
+<li>One terminal one, run the carla server as decribed before:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./CarlaUE4.sh -carla-server /Game/Maps/Town02 -benchmark -fps<span class="o">=</span><span class="m">10</span> -windowed -ResX<span class="o">=</span><span class="m">800</span> -ResY<span class="o">=</span><span class="m">600</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>On the other terminal run the following command:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 PythonClient/reinforcement-learning/run_RL.py -c Town02
+</pre></div>
+</div>
+</div></blockquote>
+<p>If all goes, well, this command will go thorough all the scenarios described in
+the benchmark file (<code class="docutils literal notranslate"><span class="pre">PythonClient/carla/driving_benchmark/experiment_suites/corl_2017.py</span></code>).
+The poses mentioned in the <code class="docutils literal notranslate"><span class="pre">corl_2017.py</span></code> file refer to an array of various
+starting and ending positions of the car. These positions can be visualized by
+running the <code class="docutils literal notranslate"><span class="pre">view_start_positions.py</span></code> file.</p>
+</div>
+<div class="section" id="references">
+<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>[1] A. Dosovitskiy, G. Ros, F. Codevilla, A. Lopez, and V. Koltun,
+“CARLA: An Open Urban Driving Simulator,”
+<a class="reference external" href="https://arxiv.org/abs/1711.03938">arXiv:1711.03938</a> [cs], Nov. 2017.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="imitation_learning.html" class="btn btn-neutral" title="Imitation Learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, xz-group.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

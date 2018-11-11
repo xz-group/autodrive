@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Carla Installation &mdash; autodrive 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Machine Learning with Carla" href="../learning/learn.html" />
+    <link rel="prev" title="Carla Simulator" href="about_carla.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> autodrive
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulators</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="comparison.html">Choosing a Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about_carla.html">Carla Simulator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Carla Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-compiled-version"><strong>Pre-compiled version</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source-version"><strong>Source version</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-version-todo"><strong>Docker version [TODO]</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#carla-server">Carla Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1"><strong>Pre-compiled version</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2"><strong>Source version</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><strong>Docker version [TODO]</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../learning/learn.html">Machine Learning with Carla</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">autodrive</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Carla Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/chapters/simulator/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="carla-installation">
+<h1>Carla Installation<a class="headerlink" href="#carla-installation" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>Testing Environment:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>Motherboard:</strong> MSI MS-7A63</div>
+<div class="line"><strong>OS:</strong> Linux (Ubuntu 16.04.1)</div>
+<div class="line"><strong>CPU:</strong> Intel(R) Core(TM) i7-7700K CPU &#64; 4.20GHz; 8 cores</div>
+<div class="line"><strong>RAM:</strong> 32GB</div>
+<div class="line"><strong>GPU:</strong> NVIDIA GeForce GTX 1080 12GB</div>
+<div class="line"><strong>NVIDIA Driver:</strong> Driver v396.54; OpenGL v4.6.0</div>
+</div>
+</dd>
+</dl>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>The Carla <a class="reference external" href="https://carla.readthedocs.io/en/stable/">documentation</a> and
+<a class="reference external" href="https://github.com/carla-simulator/carla">GitHub</a> are very useful resources
+for Carla.</p>
+<dl class="docutils">
+<dt>Knowlegde prerequisites:</dt>
+<dd><ul class="first last simple">
+<li>Linux</li>
+<li>Python</li>
+<li>Git</li>
+</ul>
+</dd>
+<dt>System prerequisites:</dt>
+<dd><ul class="first last simple">
+<li>Ubuntu 16.04.1</li>
+<li>Python 3 (3.5.2)</li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Although Carla can be run on Windows machines, it is recommened to
+use a Linux environment for machine learning research.</p>
+</div>
+<p>There are three ways to install CARLA depending on your needs.</p>
+<ol class="arabic simple">
+<li>Pre-compiled version:<ul>
+<li>+ Quick to setup</li>
+<li>+ Small directory size (~5GB)</li>
+<li>- Cannot edit the default maps</li>
+</ul>
+</li>
+<li>Source version:<ul>
+<li>+ Have complete control over simulator environment</li>
+<li>- Requires separate Unreal Engine 4 installation</li>
+<li>- Slow to setup</li>
+<li>- Large file size (~30GB)</li>
+</ul>
+</li>
+<li>Docker container<ul>
+<li>+ Very portable</li>
+<li>+ Can be used to run multiple instances of Carla on multiple GPUs</li>
+<li>- May be challenging for first time docker users</li>
+<li>- Sparse documentation</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For all testing purposes we will be using <strong>Carla 0.8.2 (stable)</strong>
+version. The Pre-compiled version is recommended for first time users.</p>
+</div>
+<div class="section" id="pre-compiled-version">
+<h3><strong>Pre-compiled version</strong><a class="headerlink" href="#pre-compiled-version" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Download the <strong>[Linux] CARLA_0.8.2.tar.gz</strong> compiled version from
+<a class="reference external" href="https://github.com/carla-simulator/carla/releases/tag/0.8.2">Carla’s 0.8.2 (stable) Releases GitHub page</a></li>
+<li>Create a new working directory and move the downloaded file there:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir carla
+<span class="nb">cd</span> carla
+mv ~/Downloads/CARLA_0.8.2.tar.gz .
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Extract the tar.gz file:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -xzvf CARLA_0.8.2.tar.gz
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<dl class="last docutils">
+<dt>The tar arguements you just used are as follows:</dt>
+<dd><ul class="first last simple">
+<li>x: eXtract</li>
+<li>z: use gZip uncompression algorithm</li>
+<li>v: provide Verbose output</li>
+<li>f: next arguement would be the tar.gz File</li>
+</ul>
+</dd>
+</dl>
+</div>
+<ol class="arabic" start="4">
+<li><p class="first">Run Carla:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./CarlaUE4.sh
+</pre></div>
+</div>
+</li>
+</ol>
+<p>This should open the Carla environment where the following keys can be used
+to control the vehicle:</p>
+<dl class="docutils">
+<dt>Manual Control:</dt>
+<dd><div class="first last line-block">
+<div class="line">W - accelerate</div>
+<div class="line">A - turn left</div>
+<div class="line">D - turn right</div>
+<div class="line">S - deccelerate</div>
+<div class="line">Q - switch gears (reverse/forward)</div>
+<div class="line">P - autopilot</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="source-version">
+<h3><strong>Source version</strong><a class="headerlink" href="#source-version" title="Permalink to this headline">¶</a></h3>
+<p>1. Follow the instructions in Carla
+<a class="reference external" href="https://carla.readthedocs.io/en/stable/how_to_build_on_linux/">documentation’s ‘How to build on Linux’</a>
+page. Be sure to install <strong>Carla 0.8.2 (stable)</strong> source code version alongside
+<strong>Unreal Engine 4.18</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To keep clean directories, it may help to install Unreal Engine in the
+<code class="docutils literal notranslate"><span class="pre">~\packages\UnrealEngine_4.28</span></code> directory and carla in the
+<code class="docutils literal notranslate"><span class="pre">~\projects\carla</span></code> directory.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have previous Anaconda installations, you may need to comment
+out the lines pertaining to them in the <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If <code class="docutils literal notranslate"><span class="pre">make</span></code> commands do not work for building carla, run the <code class="docutils literal notranslate"><span class="pre">Setup.sh</span></code>
+file. This would involve a ~10GB asset download.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you run into an issue while running the above commands, with errors
+like lib.so is missing, you should run <code class="docutils literal notranslate"><span class="pre">Rebuild.sh</span></code>.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Once both Unreal Engine and Carla have been installed, navigate to the
+carla folder and run the following commands:</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">UE4_ROOT</span><span class="o">=</span>&lt;your_path_to_UE4&gt;/UnrealEngine_4.18
+<span class="si">${</span><span class="nv">UE4_ROOT</span><span class="si">}</span>/Engine/Binaries/Linux/UE4Editor <span class="s2">&quot;&lt;your_path_to_carla&gt;/carla-0.8.2/Unreal/CarlaUE4/CarlaUE4.uproject&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic" start="3">
+<li><p class="first">To make your life easier you can put them in a shell script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch CarlaUE4.sh
+<span class="nb">echo</span> <span class="s1">&#39;export UE4_ROOT=&lt;your_path_to_UE4&gt;/UnrealEngine_4.18&#39;</span> &gt;&gt; CarlaUE4.sh
+<span class="nb">echo</span> <span class="s1">&#39;${UE4_ROOT}/Engine/Binaries/Linux/UE4Editor &quot;&lt;your_path_to_carla&gt;/carla-0.8.2/Unreal/CarlaUE4/CarlaUE4.uproject&quot;&#39;</span> &gt;&gt; CarlaUE4.sh
+chmod +X CarlaUE4.sh
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Then to run the script you can use the command <code class="docutils literal notranslate"><span class="pre">./CarlaUE4.sh</span></code>.</p>
+<p>This will open up the UE4 Editor with Carla loaded into it.</p>
+<ol class="arabic simple" start="4">
+<li>Press the play (right point arrow head) above the viewport to run Carla within
+the Unreal Editor. This will let you control the vehicle.</li>
+</ol>
+<p>The following keys can be used to control the vehicle:</p>
+<dl class="docutils">
+<dt>Manual Control:</dt>
+<dd><div class="first last line-block">
+<div class="line">W - accelerate</div>
+<div class="line">A - turn left</div>
+<div class="line">D - turn right</div>
+<div class="line">S - deccelerate</div>
+<div class="line">Q - switch gears (reverse/forward)</div>
+<div class="line">P - autopilot</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="docker-version-todo">
+<h3><strong>Docker version [TODO]</strong><a class="headerlink" href="#docker-version-todo" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This section is incomplete. For now use the instructions in <a class="reference external" href="https://carla.readthedocs.io/en/latest/carla_docker/">Carla’s docker
+instruction</a></p>
+</div>
+<p>Reference:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://carla.readthedocs.io/en/stable/running_simulator_standalone/">Running the simulator</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="carla-server">
+<h2>Carla Server<a class="headerlink" href="#carla-server" title="Permalink to this headline">¶</a></h2>
+<p>When we have been using WASD to control the vehicle in Carla, we have been using
+Carla as a standalone package. But if we want to it communicate with Python,
+we need to run it as a server.</p>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">PythonClient\</span></code> folder in the carla directory.</p>
+<p>Carla has the following parameter arguements:</p>
+<div class="section" id="id1">
+<h3><strong>Pre-compiled version</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It may be a good idea to limit the fps and resolution while running carla.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">On terminal one, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./CarlaUE4.sh -carla-server /Game/Maps/Town02 -benchmark -fps<span class="o">=</span><span class="m">10</span> -windowed -ResX<span class="o">=</span><span class="m">800</span> -ResY<span class="o">=</span><span class="m">600</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open a new terminal navigate to the <code class="docutils literal notranslate"><span class="pre">PythonClient</span></code> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> PythonClient
+</pre></div>
+</div>
+</li>
+<li><p class="first">Append the carla directory to the Python path, to allow python to use the
+carla library:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>~/projects/carla-0.8.2/PythonClient:<span class="nv">$PYTHONPATH</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>To prevent you from entering this command every time, you can add the above line
+to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file and run the command <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code> which refreshes
+your linux profile parameters.</p>
+<ol class="arabic" start="4">
+<li><p class="first">Run one of the Python examples in the <code class="docutils literal notranslate"><span class="pre">PythonClient</span></code> directory. Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 manual_control.py
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This may require the <strong>pygame</strong> library. Install it using the
+command: <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pygame</span> <span class="pre">--user</span></code>.</p>
+</div>
+<p>This lets you control the vehicle using the WASD keys on the PyGame window.</p>
+<div class="figure align-center" id="id4">
+<img alt="../../_images/manual_drive.jpg" src="../../_images/manual_drive.jpg" />
+<p class="caption"><span class="caption-text">Carla simulator (top) with PyGame window (bottom) camera view</span></p>
+</div>
+<p>Note the bottom left mini-image is the depth map and the on the the right is
+the semantic segmented camera view.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">As an alternative to using the arguement <code class="docutils literal notranslate"><span class="pre">-carla-server</span></code>, the
+<code class="docutils literal notranslate"><span class="pre">Example.CarlaSettings.ini</span></code> file in the carla directory can be edited
+to suit your need. For example <code class="docutils literal notranslate"><span class="pre">UseNetworking=true</span></code> would run carla as a
+server without using <code class="docutils literal notranslate"><span class="pre">-carla-server</span></code>. But you would have to pass that
+<code class="docutils literal notranslate"><span class="pre">.ini</span></code> file as a param:
+<code class="docutils literal notranslate"><span class="pre">./CarlaUE4.sh</span> <span class="pre">-carla-settings=Example.CarlaSettings.ini</span></code></p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3><strong>Source version</strong><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Open the <code class="docutils literal notranslate"><span class="pre">carla/Unrael/CarlaUE4/Config/CarlaSettings.ini</span></code> file with a
+text edit.</li>
+<li>Change <code class="docutils literal notranslate"><span class="pre">UseNetworking=false</span></code> to <code class="docutils literal notranslate"><span class="pre">UseNetworking=true</span></code></li>
+<li>Press the play button, and follow steps 2 to 4 from the above (pre-compiled)
+section.</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h3><strong>Docker version [TODO]</strong><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Incomplete section</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../learning/learn.html" class="btn btn-neutral float-right" title="Machine Learning with Carla" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="about_carla.html" class="btn btn-neutral" title="Carla Simulator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, xz-group.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

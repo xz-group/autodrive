@@ -1,0 +1,33 @@
+| Simulator,| Engine,"| Learning
+| Support","| Open
+| Source?",| Unique Features,| Simulator
+Deepdrive,Unreal Engine,Tensorflow,YES,"| + High FPS due to shared memory
+| + Terrain is not just flat
+| + Realistic rendering
+| + 100GB (8.2 hours) dataset available
+| - Only ground vehicles
+| - Sparse documentation",Deepdrive
+Carla,Unreal Engine,"| TensorFlow
+| Chainer",YES,"| + Easy to get started
+| - Training code currently unavailable",Carla
+Microsoft AirSim,Unreal Engine,CNTK,YES,"| + UAV support
+| + Realtime hardware controller support",Microsoft AirSim
+Baidu Apollo,"| ROS
+| Dreamview","| Tensorflow
+| Keras",YES,"| + Support includes free Udacity Apollo course 
+| - Hardware focused
+| - Only tested on Lincoln MKZ",Baidu Apollo
+Ardupilot,"SITL Simulator
+Gazebo",GymFC,YES,"| + UAV support
+| - Hardware focused
+| - Not initially intended for Learning ",Ardupilot
+TORCS,OpenGL,"| Tensorflow
+| Keras",YES,"| + Easy to get started
+| + Primary research platform for years
+| - Outdated graphics ",TORCS
+Nvidia DriveWorks,Unreal Engine,Unknown,?,"| + Good support for Nvidia GPUs and boards
+| + Used on Tesla Vehicles",Nvidia DriveWorks
+Zoox,Unreal Engine,Unknown,NO,"+ Raised $790,000,000",Zoox
+"Cruise
+Automation",Unreal Engine,Unknown,NO,"+ Raised $3,368,800,000","Cruise
+Automation"
