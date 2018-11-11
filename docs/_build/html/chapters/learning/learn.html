@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Machine Learning with Carla &mdash; autodrive 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Imitation Learning" href="imitation_learning.html" />
+    <link rel="prev" title="Carla Installation" href="../simulator/installation.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> autodrive
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../simulator/comparison.html">Choosing a Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulator/about_carla.html">Carla Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulator/installation.html">Carla Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Learning</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Machine Learning with Carla</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#driving-approaches">Driving Approaches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#results">Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#available-parameters">Available Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="imitation_learning.html">Imitation Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">autodrive</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Machine Learning with Carla</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/chapters/learning/learn.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="machine-learning-with-carla">
+<h1>Machine Learning with Carla<a class="headerlink" href="#machine-learning-with-carla" title="Permalink to this headline">¶</a></h1>
+<p>There are three kinds of machine learning methodologies which apply for
+different scenarios:</p>
+<dl class="glossary docutils">
+<dt id="term-supervised-learning">Supervised Learning</dt>
+<dd>given data, predict labels</dd>
+<dt id="term-unsupervised-learning">Unsupervised Learning</dt>
+<dd>given data, learn about that data</dd>
+<dt id="term-reinforcement-learning">Reinforcement Learning</dt>
+<dd>given data, choose action to maximize expected long-term reward</dd>
+</dl>
+<div class="section" id="driving-approaches">
+<h2>Driving Approaches<a class="headerlink" href="#driving-approaches" title="Permalink to this headline">¶</a></h2>
+<p>In the original Carla paper [1], there are three driving approaches used for
+simulating autonomous driving. Relevant papers have been cited at the bottom
+of this page.</p>
+<div class="figure align-center" id="id1">
+<img src="../../_images/graphviz-caff00aff36c133466273a2fbbcaef75a9a4e3f4.png" alt="digraph {
+   &quot;Driving Approaches&quot; -&gt; &quot;Modular Pipeline&quot;, &quot;Imitation Learning&quot;,
+                           &quot;Reinforcement Learning&quot;;
+}" />
+<p class="caption"><span class="caption-text">Driving Approaches</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id2">
+<img src="../../_images/graphviz-5dd7a451fd1b93d9062dae870108f7b42e6c75d8.png" alt="digraph {
+   &quot;Modular Pipeline&quot; -&gt; &quot;Perception&quot;, &quot;Local Planner&quot;,
+                         &quot;Continuous Controller&quot;;
+}" />
+<p class="caption"><span class="caption-text">Modular Pipeline</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id3">
+<img src="../../_images/graphviz-fc97a35095484e54e2f86deb63fc870fabc5a48d.png" alt="digraph {
+   &quot;Imitation Learning&quot; -&gt; &quot;Driving Dataset&quot;, &quot;Noise Injection&quot;,
+                           &quot;Train Deep Network&quot;;
+}" />
+<p class="caption"><span class="caption-text">Imitation Learning</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id4">
+<img src="../../_images/graphviz-69a35ae90c400c16d330d0c278ce4d2d0ef0cab1.png" alt="digraph {
+   &quot;Driving Dataset&quot; -&gt; &quot;Observations&quot;, &quot;Commands&quot;, &quot;Actions&quot;;
+}" />
+<p class="caption"><span class="caption-text">Driving Dataset</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id5">
+<img src="../../_images/graphviz-e918e085cb4eef11dd96fa2e9941e7be00d65591.png" alt="digraph {
+   &quot;Reinforcement Learning&quot; -&gt; &quot;Asynchronous advantage actor-critic (A3C) algorithm&quot; -&gt; &quot;Goal&quot;, &quot;Reward&quot;, &quot;Optimize Hyperparameters&quot;;
+}" />
+<p class="caption"><span class="caption-text">Reinforcement Learning</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id6">
+<img alt="../../_images/carla_result_01.png" src="../../_images/carla_result_01.png" />
+<p class="caption"><span class="caption-text">Quantitative evaluation of three autonomous driving systems on goal-directed
+navigation tasks. The table reports the percentage of successfully completed
+episodes in each condition. Higher is better. [1]</span></p>
+</div>
+<div class="figure align-center" id="id7">
+<img alt="../../_images/carla_result_02.png" src="../../_images/carla_result_02.png" />
+<p class="caption"><span class="caption-text">Average distance (in kilometers) traveled between two infractions.
+Higher is better. [1]</span></p>
+</div>
+<p>It is easy to infer from the tables above that the imitation learning algorithm
+is the most robust algorithm among the three. For more information regarding
+it, kindly read the original paper.</p>
+</div>
+<div class="section" id="available-parameters">
+<h2>Available Parameters<a class="headerlink" href="#available-parameters" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Commands:</dt>
+<dd><ul class="first last simple">
+<li>Steering [-1, 1]</li>
+<li>Throttle [0, 1]</li>
+<li>Brake [0, 1]</li>
+<li>Handbrake (bool)</li>
+<li>Reverse Gear (bool)</li>
+</ul>
+</dd>
+<dt>Meta-commands:</dt>
+<dd><ul class="first last simple">
+<li># vehicles (int)</li>
+<li># pedestrians (int)</li>
+<li>Weather ID (int)</li>
+<li>Spawn seed</li>
+<li>Camera params (pos, orient, FOV, res, type)</li>
+<li>Camera types (RGB, Depth, Semantic Segmentation)</li>
+<li>Town (1 or 2)</li>
+</ul>
+</dd>
+<dt>Measurements:</dt>
+<dd><ul class="first last simple">
+<li>Player Pos (3D float vect)</li>
+<li>Player Speed (float) [km/h]</li>
+<li>Collision</li>
+<li>Opp. Lane Intersection (%)</li>
+<li>Sidewalk Intersection (%)</li>
+<li>Time</li>
+<li>Player Acc (3D float vect)</li>
+<li>Player Orient (unit vect)</li>
+<li>Sensor (camera readings)</li>
+<li>NPC Pos, Orient &amp; Bounding boxes</li>
+<li>Traffic Light Info (pos &amp; state of ALL traffic lights)</li>
+<li>Speed Limit Sign Info (pos &amp; readings from ALL signs)</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>[1] A. Dosovitskiy, G. Ros, F. Codevilla, A. Lopez, and V. Koltun,
+“CARLA: An Open Urban Driving Simulator,”
+<a class="reference external" href="https://arxiv.org/abs/1711.03938">arXiv:1711.03938</a> [cs], Nov. 2017.</li>
+<li>[2] F. Codevilla, M. Müller, A. López, V. Koltun, and A. Dosovitskiy,
+“End-to-end Driving via Conditional Imitation Learning,”
+<a class="reference external" href="https://arxiv.org/abs/1710.02410">arXiv:1710.02410</a>
+[cs], Oct. 2017.</li>
+<li>[3] X. Liang, T. Wang, L. Yang, and E. Xing, “CIRL: Controllable Imitative
+Reinforcement Learning for Vision-based Self-driving,”
+<a class="reference external" href="https://arxiv.org/abs/1807.03776">arXiv:1807.03776</a> [cs],
+Jul. 2018.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="imitation_learning.html" class="btn btn-neutral float-right" title="Imitation Learning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../simulator/installation.html" class="btn btn-neutral" title="Carla Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, xz-group.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
