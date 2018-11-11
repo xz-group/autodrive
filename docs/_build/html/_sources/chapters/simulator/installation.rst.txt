@@ -56,7 +56,7 @@ Installation
 .. note:: For all testing purposes we will be using **Carla 0.8.2 (stable)**
           version. The Pre-compiled version is recommended for first time users.
 
-**Pre-compiled version**
+Pre-compiled version
 --------------------------
 
 1. Download the **[Linux] CARLA_0.8.2.tar.gz** compiled version from
@@ -102,7 +102,7 @@ Manual Control:
   | Q - switch gears (reverse/forward)
   | P - autopilot
 
-**Source version**
+Source version
 --------------------------
 
 1. Follow the instructions in Carla
@@ -165,7 +165,7 @@ Manual Control:
  | Q - switch gears (reverse/forward)
  | P - autopilot
 
-**Docker version [TODO]**
+Docker version [TODO]
 --------------------------
 
 .. warning::
@@ -188,7 +188,7 @@ Notice the ``PythonClient\`` folder in the carla directory.
 
 Carla has the following parameter arguements:
 
-**Pre-compiled version**
+Pre-compiled version
 --------------------------
 
 .. note::
@@ -249,7 +249,7 @@ the semantic segmented camera view.
    ``./CarlaUE4.sh -carla-settings=Example.CarlaSettings.ini``
 
 
-**Source version**
+Source version
 --------------------------
 
 1. Open the ``carla/Unrael/CarlaUE4/Config/CarlaSettings.ini`` file with a
@@ -260,7 +260,7 @@ the semantic segmented camera view.
 3. Press the play button, and follow steps 2 to 4 from the above (pre-compiled)
    section.
 
-**Docker version [TODO]**
+Docker version [TODO]
 --------------------------
 
 .. warning:: Incomplete section

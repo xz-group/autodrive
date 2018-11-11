@@ -90,15 +90,15 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Carla Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pre-compiled-version"><strong>Pre-compiled version</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#source-version"><strong>Source version</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#docker-version-todo"><strong>Docker version [TODO]</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-compiled-version">Pre-compiled version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source-version">Source version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-version-todo">Docker version [TODO]</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#carla-server">Carla Server</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1"><strong>Pre-compiled version</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2"><strong>Source version</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3"><strong>Docker version [TODO]</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Pre-compiled version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Source version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Docker version [TODO]</a></li>
 </ul>
 </li>
 </ul>
@@ -107,6 +107,8 @@
 <p class="caption"><span class="caption-text">Learning</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../learning/learn.html">Machine Learning with Carla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/imitation_learning.html">Imitation Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/reinforcement_learning.html">Reinforcement Learning</a></li>
 </ul>
 
             
@@ -242,7 +244,7 @@ use a Linux environment for machine learning research.</p>
 version. The Pre-compiled version is recommended for first time users.</p>
 </div>
 <div class="section" id="pre-compiled-version">
-<h3><strong>Pre-compiled version</strong><a class="headerlink" href="#pre-compiled-version" title="Permalink to this headline">¶</a></h3>
+<h3>Pre-compiled version<a class="headerlink" href="#pre-compiled-version" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Download the <strong>[Linux] CARLA_0.8.2.tar.gz</strong> compiled version from
 <a class="reference external" href="https://github.com/carla-simulator/carla/releases/tag/0.8.2">Carla’s 0.8.2 (stable) Releases GitHub page</a></li>
@@ -299,7 +301,7 @@ to control the vehicle:</p>
 </dl>
 </div>
 <div class="section" id="source-version">
-<h3><strong>Source version</strong><a class="headerlink" href="#source-version" title="Permalink to this headline">¶</a></h3>
+<h3>Source version<a class="headerlink" href="#source-version" title="Permalink to this headline">¶</a></h3>
 <p>1. Follow the instructions in Carla
 <a class="reference external" href="https://carla.readthedocs.io/en/stable/how_to_build_on_linux/">documentation’s ‘How to build on Linux’</a>
 page. Be sure to install <strong>Carla 0.8.2 (stable)</strong> source code version alongside
@@ -364,7 +366,7 @@ the Unreal Editor. This will let you control the vehicle.</li>
 </dl>
 </div>
 <div class="section" id="docker-version-todo">
-<h3><strong>Docker version [TODO]</strong><a class="headerlink" href="#docker-version-todo" title="Permalink to this headline">¶</a></h3>
+<h3>Docker version [TODO]<a class="headerlink" href="#docker-version-todo" title="Permalink to this headline">¶</a></h3>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">This section is incomplete. For now use the instructions in <a class="reference external" href="https://carla.readthedocs.io/en/latest/carla_docker/">Carla’s docker
@@ -384,7 +386,7 @@ we need to run it as a server.</p>
 <p>Notice the <code class="docutils literal notranslate"><span class="pre">PythonClient\</span></code> folder in the carla directory.</p>
 <p>Carla has the following parameter arguements:</p>
 <div class="section" id="id1">
-<h3><strong>Pre-compiled version</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>Pre-compiled version<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">It may be a good idea to limit the fps and resolution while running carla.</p>
@@ -440,7 +442,7 @@ server without using <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 <div class="section" id="id2">
-<h3><strong>Source version</strong><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>Source version<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Open the <code class="docutils literal notranslate"><span class="pre">carla/Unrael/CarlaUE4/Config/CarlaSettings.ini</span></code> file with a
 text edit.</li>
@@ -450,7 +452,7 @@ section.</li>
 </ol>
 </div>
 <div class="section" id="id3">
-<h3><strong>Docker version [TODO]</strong><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>Docker version [TODO]<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Incomplete section</p>

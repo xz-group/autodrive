@@ -19,6 +19,7 @@ AutoDrive Documentation
    chapters/about
 
 .. toctree::
+   :maxdepth: 2
    :caption: Simulators
 
    chapters/simulator/comparison
@@ -26,6 +27,7 @@ AutoDrive Documentation
    chapters/simulator/installation
 
 .. toctree::
+   :maxdepth: 1
    :caption: Learning
 
    chapters/learning/learn
