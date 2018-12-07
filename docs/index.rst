@@ -26,6 +26,7 @@ AutoDrive Documentation
    chapters/simulator/about_carla
    chapters/simulator/installation
 
+
 .. toctree::
    :maxdepth: 1
    :caption: Learning
@@ -33,3 +34,9 @@ AutoDrive Documentation
    chapters/learning/learn
    chapters/learning/imitation_learning
    chapters/learning/reinforcement_learning
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Customization
+
+   chapters/customization/carla_customization

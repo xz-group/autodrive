@@ -92,13 +92,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pre-compiled-version">Pre-compiled version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#source-version">Source version</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#docker-version-todo">Docker version [TODO]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-version">Docker version</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#carla-server">Carla Server</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Pre-compiled version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Source version</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Docker version [TODO]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Docker version</a></li>
 </ul>
 </li>
 </ul>
@@ -109,6 +109,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../learning/learn.html">Machine Learning with Carla</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../learning/imitation_learning.html">Imitation Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../learning/reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Customization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../customization/carla_customization.html">CARLA Customization</a></li>
 </ul>
 
             
@@ -231,7 +235,6 @@ use a Linux environment for machine learning research.</p>
 <li>+ Very portable</li>
 <li>+ Can be used to run multiple instances of Carla on multiple GPUs</li>
 <li>- May be challenging for first time docker users</li>
-<li>- Sparse documentation</li>
 </ul>
 </li>
 </ol>
@@ -365,12 +368,51 @@ the Unreal Editor. This will let you control the vehicle.</li>
 </dd>
 </dl>
 </div>
-<div class="section" id="docker-version-todo">
-<h3>Docker version [TODO]<a class="headerlink" href="#docker-version-todo" title="Permalink to this headline">¶</a></h3>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This section is incomplete. For now use the instructions in <a class="reference external" href="https://carla.readthedocs.io/en/latest/carla_docker/">Carla’s docker
-instruction</a></p>
+<div class="section" id="docker-version">
+<h3>Docker version<a class="headerlink" href="#docker-version" title="Permalink to this headline">¶</a></h3>
+<p>Docker containers wrap a piece of software in a complete filesystem that
+contains everything needed to run: code, runtime, system tools, system
+libraries – anything that can be installed on a server. This guarantees that
+the software will always run the same, regardless of its environment.</p>
+<p>The docker version of CARLA is usually meant to be run on a server, and is
+typically headless (without a simulator window). This decreases the overhead
+for rendering the environment.
+The primary instruction set for installing the CARLA docker can be found in the
+<a class="reference external" href="https://carla.readthedocs.io/en/latest/carla_docker/">official documentation</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are a Washington University researcher, steps 1 and 2 can be skipped.</p>
+</div>
+<ol class="arabic simple">
+<li>Install Docker CE (Community Edition) for your operating system:<ul>
+<li><a class="reference external" href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Ubuntu</a></li>
+<li><a class="reference external" href="https://docs.docker.com/install/linux/docker-ce/centos/">Centos</a></li>
+<li><a class="reference external" href="https://docs.docker.com/docker-for-windows/install/">Windows</a></li>
+<li><a class="reference external" href="https://docs.docker.com/docker-for-mac/">MacOS</a></li>
+</ul>
+</li>
+</ol>
+<p>2. Install <cite>nvidia-docker2</cite> using the official <a class="reference external" href="https://github.com/NVIDIA/nvidia-docker/wiki/Installation-(version-2.0)">NVIDIA guide</a>.</p>
+<ol class="arabic simple" start="3">
+<li>Pull the CARLA image:</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull carlasim/carla:0.8.2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">sudo</span></code> will be required for running docker commands unless you are added to
+the docker usergroup. Use
+<a class="reference external" href="thisguidehttps://docs.docker.com/install/linux/linux-postinstall/">thisguidehttps://docs.docker.com/install/linux/linux-postinstall/</a> to
+do so. If you do not have sudo access on the server that you are using, ask
+your server admin to add you to the docker group.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The CARLA docker image that is pulled does not contain the PythonClient files.
+Additionally, it does not contain Python libraries. It is meant to be run as
+a standalone server to which you can connect a Python client. Use the
+pre-compiled guide from above to acquire the PythonClient files.</p>
 </div>
 <p>Reference:</p>
 <ul class="simple">
@@ -452,10 +494,36 @@ section.</li>
 </ol>
 </div>
 <div class="section" id="id3">
-<h3>Docker version [TODO]<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Incomplete section</p>
+<h3>Docker version<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Run the CARLA server using Docker:</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -p <span class="m">2000</span>-2002:2000-2002 --runtime<span class="o">=</span>nvidia -e <span class="nv">NVIDIA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span> carlasim/carla:0.8.2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">2000-2002:2000-2002</span></code> argument is to redirect host ports for the docker
+container.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">NVIDIA_VISIBLE_DEVICES=0</span></code> makes the docker run on GPU ID 0. GPU listing
+can be acquired using the command <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p>
+</div>
+<p>2. Open a new terminal and navigate to the PythonClient directory from the
+pre-compiled version.</p>
+<ol class="arabic" start="3">
+<li><p class="first">Run one of the Python examples in the <code class="docutils literal notranslate"><span class="pre">PythonClient</span></code> directory. Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 manual_control.py
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This may require the <strong>pygame</strong> library. Install it using the
+command: <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pygame</span> <span class="pre">--user</span></code>.</p>
 </div>
 </div>
 </div>
