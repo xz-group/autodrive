@@ -48,7 +48,6 @@ There are three ways to install CARLA depending on your needs.
    - \+ Very portable
    - \+ Can be used to run multiple instances of Carla on multiple GPUs
    - \- May be challenging for first time docker users
-   - \- Sparse documentation
 
 Installation
 *****************
@@ -165,13 +164,54 @@ Manual Control:
  | Q - switch gears (reverse/forward)
  | P - autopilot
 
-Docker version [TODO]
+Docker version
 --------------------------
 
-.. warning::
+Docker containers wrap a piece of software in a complete filesystem that
+contains everything needed to run: code, runtime, system tools, system
+libraries – anything that can be installed on a server. This guarantees that
+the software will always run the same, regardless of its environment.
 
-   This section is incomplete. For now use the instructions in `Carla's docker
-   instruction <https://carla.readthedocs.io/en/latest/carla_docker/>`_
+The docker version of CARLA is usually meant to be run on a server, and is
+typically headless (without a simulator window). This decreases the overhead
+for rendering the environment.
+The primary instruction set for installing the CARLA docker can be found in the
+`official documentation <https://carla.readthedocs.io/en/latest/carla_docker/>`_.
+
+.. note::
+
+   If you are a Washington University researcher, steps 1 and 2 can be skipped.
+
+1. Install Docker CE (Community Edition) for your operating system:
+
+   - `Ubuntu <https://docs.docker.com/install/linux/docker-ce/ubuntu/>`_
+   - `Centos <https://docs.docker.com/install/linux/docker-ce/centos/>`_
+   - `Windows <https://docs.docker.com/docker-for-windows/install/>`_
+   - `MacOS <https://docs.docker.com/docker-for-mac/>`_
+
+2. Install `nvidia-docker2` using the official `NVIDIA guide
+<https://github.com/NVIDIA/nvidia-docker/wiki/Installation-(version-2.0)>`_.
+
+3. Pull the CARLA image:
+
+.. code-block:: bash
+
+   docker pull carlasim/carla:0.8.2
+
+.. note::
+
+   ``sudo`` will be required for running docker commands unless you are added to
+   the docker usergroup. Use
+   `<this guide https://docs.docker.com/install/linux/linux-postinstall/>`_ to
+   do so. If you do not have sudo access on the server that you are using, ask
+   your server admin to add you to the docker group.
+
+.. note::
+
+   The CARLA docker image that is pulled does not contain the PythonClient files.
+   Additionally, it does not contain Python libraries. It is meant to be run as
+   a standalone server to which you can connect a Python client. Use the
+   pre-compiled guide from above to acquire the PythonClient files.
 
 Reference:
 
@@ -260,7 +300,35 @@ Source version
 3. Press the play button, and follow steps 2 to 4 from the above (pre-compiled)
    section.
 
-Docker version [TODO]
+Docker version
 --------------------------
 
-.. warning:: Incomplete section
+1. Run the CARLA server using Docker:
+
+.. code-block:: bash
+
+   docker run -p 2000-2002:2000-2002 --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=0 carlasim/carla:0.8.2
+
+.. note::
+
+   ``-p 2000-2002:2000-2002`` argument is to redirect host ports for the docker
+   container.
+
+.. note::
+
+   ``NVIDIA_VISIBLE_DEVICES=0`` makes the docker run on GPU ID 0. GPU listing
+   can be acquired using the command ``nvidia-smi``.
+
+2. Open a new terminal and navigate to the PythonClient directory from the
+pre-compiled version.
+
+3. Run one of the Python examples in the ``PythonClient`` directory. Example:
+
+   .. code-block:: bash
+
+      python3 manual_control.py
+
+.. note::
+
+   This may require the **pygame** library. Install it using the
+   command: ``pip3 install pygame --user``.
